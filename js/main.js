@@ -15,6 +15,7 @@
 
   /*----- cached elements  -----*/
 
+  const msgEl = document.querySelector('h1');
 
   /*----- event listeners -----*/
 
@@ -46,7 +47,7 @@
 
   function render () {
     renderBoard();
-    // renderMessage();
+    renderMessage();
     // renderControls();
   }
 
@@ -58,5 +59,17 @@
         });
     });
   }
+
+  function renderMessage() {
+    if (winner === null) {
+        msgEl.innerHTML = `<span style ="color: ${COLORS[turn]}">${COLORS[turn].toUpperCase()}</span>'s Turn`;
+    } else if (winner === 'Tie') {
+        msgEl.innerHTML = "It's a Tie!";
+    } else {
+        //There's a winner
+        msgEl.innerHTML = `<span style ="color: ${COLORS[winner]}">${COLORS[winner].toUpperCase()}</span> Wins!`;
+    }
+  }
+
 
   init();
