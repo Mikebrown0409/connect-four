@@ -16,6 +16,7 @@
   /*----- cached elements  -----*/
 
   const msgEl = document.querySelector('h1');
+  const playAgainBTN = document.querySelector('#play-again')
 
   /*----- event listeners -----*/
 
@@ -48,7 +49,7 @@
   function render () {
     renderBoard();
     renderMessage();
-    // renderControls();
+    renderControls();
   }
 
   function renderBoard() {
@@ -71,5 +72,8 @@
     }
   }
 
+  function renderControls () {
+    playAgainBTN.style.visibility = winner ? 'visible' : 'hidden';
+  }
 
   init();
